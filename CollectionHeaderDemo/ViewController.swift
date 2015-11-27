@@ -28,7 +28,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         for i in 65...90
         {
             let items=NSMutableArray()
-            for j in 0...20
+            for j in 1...10
             {
                 let m=Model()
                 m.title=String(format:"第%c组第%d个数据",i,j)
@@ -103,7 +103,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         case UICollectionElementKindSectionHeader:
             let header:HeaderReusableView=collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath) as! HeaderReusableView
             
-            int index=indexPath.section+65
+            let index=indexPath.section+65
             header.headerLb!.text=String(format: "第%c组头部", index)
             
             return header
@@ -111,7 +111,7 @@ class ViewController: UIViewController,UICollectionViewDelegate,UICollectionView
         case UICollectionElementKindSectionFooter:
             let footer:FooterReusableView=collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath) as!FooterReusableView
             let index=indexPath.section+65
-            footer.footerLb!.text=String(format: "第%ld组脚部", NSInteger(index))
+            footer.footerLb!.text=String(format: "第%c组脚部", index)
             
             return footer
             
